@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+	
+// All the individual Sticker information
 	const newSticker = [
 		{
 			stickerImg: 'assets/catalog-img/red-jacket-back.webp',
@@ -31,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
 			stickerAttribute: 'pink-jacket',
 		},
 	];
-
 	const stickerContainer = document.createElement('div');
 	stickerContainer.classList.add('catalog__sticker-container', 'column--12', 'column-small--12');
 
+// Creating the stickers
 	newSticker.forEach((sticker) => {
 		 const mainSticker = document.createElement('div');
 		 mainSticker.setAttribute('data-sticker-filter', sticker.stickerAttribute);
@@ -68,9 +71,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		 stickerContainer.appendChild(mainSticker);
 	});
-
 	document.body.appendChild(stickerContainer);
 
+// All the product-page information
 	const newProductPages = [
 		{
 			 stickerImg: 'assets/catalog-img/red-jacket-back.webp',
@@ -133,212 +136,221 @@ document.addEventListener('DOMContentLoaded', function () {
 			productPicture3:'assets/catalog-img/blue-jacket-smile.webp',
 		},
 	];
-	
+
+// Creating the productpage and functions/logic within.
 	const mainStickers = document.querySelectorAll('.main-sticker');
-	
 	function filterStickers(event) {
-		const pageToShow = event.currentTarget.dataset.stickerFilter;
-  
-		newProductPages.forEach(newProductPage => {
-			if (pageToShow === newProductPage.productAttribute) {
-				const productPage = document.createElement('div');
-				productPage.classList.add('product-page');
-				productPage.setAttribute('data-catalog-page', newProductPage.productAttribute);
-		// exit-button
-				const exitButton = document.createElement('button');
-				exitButton.classList.add('exit-button__grid');
-				exitButton.textContent = 'X';
-				productPage.appendChild(exitButton);
-		// logo-container
-				const logoContainer = document.createElement('div');
-				logoContainer.classList.add('product-page__header', 'show', 'offset--8', 'column--2', 'offset-small--5', 'column-small--2');
-				const logoImg = document.createElement('img');
-				logoImg.setAttribute('src', newProductPage.stickerImg);
-				logoContainer.appendChild(logoImg);
-				productPage.appendChild(logoContainer);
-		// slideshow-container
-				const slideshowContainer = document.createElement('div');
-				slideshowContainer.classList.add('product-page__slideshow', 'offset-small--1', 'offset--1', 'column--6');
-		// 
-				const pictures = document.createElement('div');
-				pictures.classList.add('slideshow__pictures');
-				slideshowContainer.appendChild(pictures);
+			const pageToShow = event.currentTarget.dataset.stickerFilter;
+	
+			newProductPages.forEach(newProductPage => {
+				if (pageToShow === newProductPage.productAttribute) {
+					const productPage = document.createElement('div');
+					productPage.classList.add('product-page');
+					productPage.setAttribute('data-catalog-page', newProductPage.productAttribute);
 
-				const img1 = document.createElement('img');
-				img1.classList.add('productPicture');
-				img1.setAttribute('src', newProductPage.productPicture1);
-				pictures.appendChild(img1);
-		
-				const img2 = document.createElement('img');
-				img2.classList.add('productPicture');
-				img2.setAttribute('src', newProductPage.productPicture2);
-				pictures.appendChild(img2);
-		
-				const img3 = document.createElement('img');
-				img3.classList.add('productPicture');
-				img3.setAttribute('src', newProductPage.productPicture3);
-				pictures.appendChild(img3);
+			// Exit-button
+					const exitButton = document.createElement('button');
+					exitButton.classList.add('exit-button__grid');
+					exitButton.textContent = 'X';
+					productPage.appendChild(exitButton);
 
-				const prevButton = document.createElement('div');
-				prevButton.classList.add('prev-button');
-				prevButton.textContent = 'Previous';
-				slideshowContainer.appendChild(prevButton);
-				
-				const nextButton = document.createElement('div');
-				nextButton.classList.add('next-button');
-				nextButton.textContent = 'Next';
-				slideshowContainer.appendChild(nextButton);
+			// Logo-container
+					const logoContainer = document.createElement('div');
+					logoContainer.classList.add('product-page__header', 'show', 'offset--8', 'column--2', 'offset-small--5', 'column-small--2');
+					const logoImg = document.createElement('img');
+					logoImg.setAttribute('src', newProductPage.stickerImg);
+					logoContainer.appendChild(logoImg);
+					productPage.appendChild(logoContainer);
+
+			// Slideshow-container
+					const slideshowContainer = document.createElement('div');
+					slideshowContainer.classList.add('product-page__slideshow', 'offset-small--1', 'offset--1', 'column--6');
+			
+			// Picture-container
+					const pictures = document.createElement('div');
+					pictures.classList.add('slideshow__pictures');
+					slideshowContainer.appendChild(pictures);
+
+			// Image 1
+					const img1 = document.createElement('img');
+					img1.classList.add('productPicture');
+					img1.setAttribute('src', newProductPage.productPicture1);
+					pictures.appendChild(img1);
+
+			// Image 2
+					const img2 = document.createElement('img');
+					img2.classList.add('productPicture');
+					img2.setAttribute('src', newProductPage.productPicture2);
+					pictures.appendChild(img2);
+
+			// Image 3
+					const img3 = document.createElement('img');
+					img3.classList.add('productPicture');
+					img3.setAttribute('src', newProductPage.productPicture3);
+					pictures.appendChild(img3);
+
+			// "Previous" button in slideshow
+					const prevButton = document.createElement('div');
+					prevButton.classList.add('prev-button');
+					prevButton.textContent = 'Previous';
+					slideshowContainer.appendChild(prevButton);
+
+			// "Next" button in slideshow
+					const nextButton = document.createElement('div');
+					nextButton.classList.add('next-button');
+					nextButton.textContent = 'Next';
+					slideshowContainer.appendChild(nextButton);
+
+			// Adding the slideshow page	
+					productPage.appendChild(slideshowContainer);
 					
-				productPage.appendChild(slideshowContainer);
+			// Product information container
+					const infoContainer = document.createElement('div');
+					infoContainer.classList.add('product-page__info-container', 'offset-small--1', 'offset--7', 'column--4');
+					productPage.appendChild(infoContainer);
+
+			// Navigation container within the product information container.
+					const infoNav = document.createElement('div');
+					infoNav.classList.add('product-page__info-nav', 'column--12');
+					infoContainer.appendChild(infoNav);
+
+			// Details-button
+					const detailButton = document.createElement('div');
+					detailButton.setAttribute('data-product-spec', 'details');
+					detailButton.classList.add('column--4', 'column-small--4', 'product-page__button');
+					detailButton.textContent = 'Detaljer';
+					infoNav.appendChild(detailButton);
+
+			// Buy button
+					const buyButton = document.createElement('div');
+					buyButton.setAttribute('data-product-spec', 'buy');
+					buyButton.classList.add('column--4', 'column-small--4', 'product-page__button');
+					buyButton.textContent = 'Kjøp';
+					infoNav.appendChild(buyButton);
+
+			// History-button	
+					const historyButton = document.createElement('div');
+					historyButton.setAttribute('data-product-spec', 'history');
+					historyButton.classList.add('column--4', 'column-small--4', 'product-page__button');
+					historyButton.textContent = 'Historikk';
+					infoNav.appendChild(historyButton);
+			// Details-info
+					const detailsContainer = document.createElement('div');
+					detailsContainer.setAttribute('data-product-info', 'details');
+					detailsContainer.classList.add('product-page__info', 'show', 'column--12');
+					detailsContainer.textContent = newProductPage.detailsContent;
+					infoContainer.appendChild(detailsContainer);
+
+			// Buy-info
+					const buyContainer = document.createElement('div');
+					buyContainer.setAttribute('data-product-info', 'buy');
+					buyContainer.classList.add('product-page__info', 'column--12');
+					buyContainer.textContent = newProductPage.buyContent;
+					infoContainer.appendChild(buyContainer);
+
+			// History-info
+					const historyContainer = document.createElement('div');
+					historyContainer.setAttribute('data-product-info', 'history');
+					historyContainer.classList.add('product-page__info', 'column--12');
+					historyContainer.textContent = newProductPage.historyContent;
+					infoContainer.appendChild(historyContainer);
+					
+			// Adding the total page to the document
+					document.body.appendChild(productPage);
+				}
 				
-				const infoContainer = document.createElement('div');
-				infoContainer.classList.add('product-page__info-container', 'offset-small--1', 'offset--7', 'column--4');
-				
-				const infoNav = document.createElement('div');
-				infoNav.classList.add('product-page__info-nav', 'column--12');
-				
-				const detailButton = document.createElement('div');
-				detailButton.setAttribute('data-product-spec', 'details');
-				detailButton.classList.add('column--4', 'column-small--4', 'product-page__button');
-				detailButton.textContent = 'Detaljer';
-				
-				const buyButton = document.createElement('div');
-				buyButton.setAttribute('data-product-spec', 'buy');
-				buyButton.classList.add('column--4', 'column-small--4', 'product-page__button');
-				buyButton.textContent = 'Kjøp';
-				
-				const historyButton = document.createElement('div');
-				historyButton.setAttribute('data-product-spec', 'history');
-				historyButton.classList.add('column--4', 'column-small--4', 'product-page__button');
-				historyButton.textContent = 'Historikk';
-				
-				infoNav.appendChild(detailButton);
-				infoNav.appendChild(buyButton);
-				infoNav.appendChild(historyButton);
-				
-				infoContainer.appendChild(infoNav);
-				
-				const detailsContainer = document.createElement('div');
-				detailsContainer.setAttribute('data-product-info', 'details');
-				detailsContainer.classList.add('product-page__info', 'show', 'column--12');
-				detailsContainer.textContent = newProductPage.detailsContent;
-				
-				const buyContainer = document.createElement('div');
-				buyContainer.setAttribute('data-product-info', 'buy');
-				buyContainer.classList.add('product-page__info', 'column--12');
-				buyContainer.textContent = newProductPage.buyContent;
-				
-				const historyContainer = document.createElement('div');
-				historyContainer.setAttribute('data-product-info', 'history');
-				historyContainer.classList.add('product-page__info', 'column--12');
-				historyContainer.textContent = newProductPage.historyContent;
-				
-				infoContainer.appendChild(detailsContainer);
-				infoContainer.appendChild(buyContainer);
-				infoContainer.appendChild(historyContainer);
-				
-				productPage.appendChild(infoContainer);
-				
-				document.body.appendChild(productPage);
+			});
+
+			
+	// Details - Buy - History buttons logic, adding/removing "show" class to show/hide info.
+			const productPageButtons = document.querySelectorAll('.product-page__button');
+			const productOptions = document.querySelectorAll('.product-page__info');
+
+			function showInfo(event) {
+				productOptions.forEach(option => {
+					option.classList.remove('show');
+				});
+				const currentInfoButton = event.currentTarget;
+				const currentInfoButtonData = currentInfoButton.dataset.productSpec;
+
+				productOptions.forEach(option => {
+					const optionInfo = option.dataset.productInfo;
+
+					if (optionInfo === currentInfoButtonData) {
+							option.classList.add('show');
+					}
+				});
+			}
+
+			productPageButtons.forEach((infoButton) => {
+				infoButton.addEventListener('click', showInfo);
+			});
+
+
+	// Exit button deletes the whole product-page.
+			const exitButtonsGrid = document.querySelectorAll('.exit-button__grid');
+
+			function closeGrid() {
+				const productPages = document.querySelectorAll('.product-page');
+
+				productPages.forEach(function (productPage) {
+					productPage.remove();
+				});
 			}
 			
-		});
-
-		
-// Details - Buy - History buttons show and hide content
-		const productPageButtons = document.querySelectorAll('.product-page__button');
-		const productOptions = document.querySelectorAll('.product-page__info');
-
-		function showInfo(event) {
-			productOptions.forEach(option => {
-				option.classList.remove('show');
+			exitButtonsGrid.forEach(function (exitButtonGrid) {
+				exitButtonGrid.addEventListener('click', closeGrid);
 			});
-			const currentInfoButton = event.currentTarget;
-			const currentInfoButtonData = currentInfoButton.dataset.productSpec;
 
-			productOptions.forEach(option => {
-				const optionInfo = option.dataset.productInfo;
-
-				if (optionInfo === currentInfoButtonData) {
-						option.classList.add('show');
+	// Delete product-page with escape button
+			document.addEventListener('keydown', function (event) {
+				if (event.key === 'Escape') {
+					closeGrid();
 				}
 			});
-		}
-
-		productPageButtons.forEach((infoButton) => {
-			infoButton.addEventListener('click', showInfo);
-		});
-
-
-// Exit button
-		const exitButtonsGrid = document.querySelectorAll('.exit-button__grid');
-
-		function closeGrid() {
-			const productPages = document.querySelectorAll('.product-page');
-
-			productPages.forEach(function (productPage) {
-				productPage.remove();
-			});
-		}
-		
-		exitButtonsGrid.forEach(function (exitButtonGrid) {
-			exitButtonGrid.addEventListener('click', closeGrid);
-		});
 
 
 
-// Close product-page with escape button
-		document.addEventListener('keydown', function (event) {
-			if (event.key === 'Escape') {
-				closeGrid();
+	// Slideshow
+			let currentSlideIndex = 0;
+			const slides = document.querySelectorAll('.productPicture');
+			const prevButton = document.querySelector('.prev-button');
+			const nextButton = document.querySelector('.next-button');
+
+			function showSlide(index) {
+				slides.forEach((slide, i) => {
+					if (i === index) {
+						slide.style.display = 'block';
+					} else {
+						slide.style.display = 'none';
+					}
+				});
 			}
-		});
 
+			function nextSlide() {
+				currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+				showSlide(currentSlideIndex);
+			}
 
+			function prevSlide() {
+				currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+				showSlide(currentSlideIndex);
+			}
 
-// Slideshow
-		let currentSlideIndex = 0;
-		const slides = document.querySelectorAll('.productPicture');
-		const prevButton = document.querySelector('.prev-button');
-		const nextButton = document.querySelector('.next-button');
-
-		function showSlide(index) {
-			slides.forEach((slide, i) => {
-				if (i === index) {
-					slide.style.display = 'block';
-				} else {
-					slide.style.display = 'none';
-				}
-			});
-		}
-
-		function nextSlide() {
-			currentSlideIndex = (currentSlideIndex + 1) % slides.length;
 			showSlide(currentSlideIndex);
-		}
 
-		function prevSlide() {
-			currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-			showSlide(currentSlideIndex);
-		}
+			prevButton.addEventListener('click', prevSlide);
+			nextButton.addEventListener('click', nextSlide);
+		};
 
-		showSlide(currentSlideIndex);
-
-		prevButton.addEventListener('click', prevSlide);
-		nextButton.addEventListener('click', nextSlide);
-	};
-
-
-
-// Creating the following productpage for each spesific stickers
-
+// Event listener for creating the spesific productpage for each spesific sticker.
 	mainStickers.forEach(function(mainSticker) {
 	mainSticker.addEventListener('click', filterStickers);
 	});
 	
 	
 
-// Search-bar 
+// Search-bar hide and show icon
 
 	const catalogInput = document.querySelector('.catalog__input-bar input');
 	const catalogImg = document.querySelector('.catalog__input-bar img');
@@ -352,34 +364,34 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 
 
-// Open navigation dropdowns
+	// Open navigation dropdowns
 
-const catalogNavButtons = document.querySelectorAll('.catalog__nav-button')
+	const catalogNavButtons = document.querySelectorAll('.catalog__nav-button')
 
-function openDropdown(event) {
-	currentNavButton = event.currentTarget
-	currentChild = currentNavButton.firstElementChild;
-	currentChild.classList.add('show')
-	
-}
-catalogNavButtons.forEach(function(catalogNavButton) {
-	catalogNavButton.addEventListener('click', openDropdown);
-});
+	function openDropdown(event) {
+		currentNavButton = event.currentTarget
+		currentChild = currentNavButton.firstElementChild;
+		currentChild.classList.add('show')
+		
+	}
+	catalogNavButtons.forEach(function(catalogNavButton) {
+		catalogNavButton.addEventListener('click', openDropdown);
+	});
 
-// close navigation dropdowns
+	// close navigation dropdowns
 
-const exitButtonsFlex = document.querySelectorAll('.exit-button-flex');
+	const exitButtonsFlex = document.querySelectorAll('.exit-button-flex');
 
-function closeDropdown(event) {
-	currentExitButton = event.currentTarget;
-	currentParent = currentExitButton.parentElement;
-	currentParent.classList.remove('show')
-	event.stopPropagation();
-}
+	function closeDropdown(event) {
+		currentExitButton = event.currentTarget;
+		currentParent = currentExitButton.parentElement;
+		currentParent.classList.remove('show')
+		event.stopPropagation();
+	}
 
-exitButtonsFlex.forEach(function(exitButtonFlex) {
-	exitButtonFlex.addEventListener('click', closeDropdown)
-})
+	exitButtonsFlex.forEach(function(exitButtonFlex) {
+		exitButtonFlex.addEventListener('click', closeDropdown)
+	})
 
 
 

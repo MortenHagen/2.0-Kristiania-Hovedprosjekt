@@ -239,7 +239,7 @@
 
 }
 
-.product-page__info-nav div {
+.product-page__button {
 	height: 1.5rem;
 	width: 30%;
 	margin-left: 1.5%;
@@ -253,7 +253,7 @@
 #product-details-container {
 	display: flex;
 }
-.product-page__info-options {
+.product-page__info {
 	display: none;
 }
 

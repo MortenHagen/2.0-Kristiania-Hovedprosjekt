@@ -48,8 +48,8 @@
 	padding: 5px 0px;
 	background-color: #014288;
 	color: white;
-	width: 55%;
 	border-radius: 5px;
+	width: 100%;
 	font-size: 1rem;
 	font-weight: 700;
 	text-align: center;
@@ -59,12 +59,12 @@
 	overflow: hidden;
 }
 
-.main-button:hover {
+.main-buttons:hover {
 	transform: scale(1.1);
 	background-color: #015BAB;
 }
 
-.main-button::before {
+.main-buttons::before {
 	content: "";
 	position: absolute;
 	top: 0;

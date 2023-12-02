@@ -220,18 +220,18 @@ document.addEventListener('DOMContentLoaded', function () {
 				
 				const detailsContainer = document.createElement('div');
 				detailsContainer.setAttribute('data-product-info', 'details');
-				detailsContainer.classList.add('product-page__info-options', 'show', 'column--12');
+				detailsContainer.classList.add('product-page__info', 'show', 'column--12');
 				detailsContainer.textContent = newProductPage.detailsContent;
 				
 				const buyContainer = document.createElement('div');
 				buyContainer.setAttribute('data-product-info', 'buy');
-				buyContainer.classList.add('product-page__info-options', 'column--12');
-				detailsContainer.textContent = newProductPage.buyContent;
+				buyContainer.classList.add('product-page__info', 'column--12');
+				buyContainer.textContent = newProductPage.buyContent;
 				
 				const historyContainer = document.createElement('div');
 				historyContainer.setAttribute('data-product-info', 'history');
-				historyContainer.classList.add('product-page__info-options', 'column--12');
-				detailsContainer.textContent = newProductPage.historyContent;
+				historyContainer.classList.add('product-page__info', 'column--12');
+				historyContainer.textContent = newProductPage.historyContent;
 				
 				infoContainer.appendChild(detailsContainer);
 				infoContainer.appendChild(buyContainer);
@@ -245,6 +245,30 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 
 		
+// Details - Buy - History buttons show and hide content
+		const productPageButtons = document.querySelectorAll('.product-page__button');
+		const productOptions = document.querySelectorAll('.product-page__info');
+
+		function showInfo(event) {
+			productOptions.forEach(option => {
+				option.classList.remove('show');
+			});
+			const currentInfoButton = event.currentTarget;
+			const currentInfoButtonData = currentInfoButton.dataset.productSpec;
+
+			productOptions.forEach(option => {
+				const optionInfo = option.dataset.productInfo;
+
+				if (optionInfo === currentInfoButtonData) {
+						option.classList.add('show');
+				}
+			});
+		}
+
+		productPageButtons.forEach((infoButton) => {
+			infoButton.addEventListener('click', showInfo);
+		});
+
 
 // Exit button
 		const exitButtonsGrid = document.querySelectorAll('.exit-button__grid');
@@ -330,16 +354,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Open navigation dropdowns
 
-	const catalogNavButtons = document.querySelectorAll('.catalog__nav-button')
+const catalogNavButtons = document.querySelectorAll('.catalog__nav-button')
 
-	function openDropdown(event) {
-		currentNavButton = event.currentTarget
-		currentChild = currentNavButton.firstElementChild;
-		currentChild.classList.add('show')
-	}
-	catalogNavButtons.forEach(function(catalogNavButton) {
-		catalogNavButton.addEventListener('click', openDropdown);
-	});
+function openDropdown(event) {
+	currentNavButton = event.currentTarget
+	currentChild = currentNavButton.firstElementChild;
+	currentChild.classList.add('show')
+	
+}
+catalogNavButtons.forEach(function(catalogNavButton) {
+	catalogNavButton.addEventListener('click', openDropdown);
+});
 
 // close navigation dropdowns
 
@@ -347,8 +372,9 @@ const exitButtonsFlex = document.querySelectorAll('.exit-button-flex');
 
 function closeDropdown(event) {
 	currentExitButton = event.currentTarget;
-	currentParent = currentExitButton.ParentElement;
+	currentParent = currentExitButton.parentElement;
 	currentParent.classList.remove('show')
+	event.stopPropagation();
 }
 
 exitButtonsFlex.forEach(function(exitButtonFlex) {

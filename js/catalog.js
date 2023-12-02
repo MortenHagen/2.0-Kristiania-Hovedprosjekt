@@ -32,9 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		},
 	];
 
-	 const stickerContainer = document.createElement('div');
-	 stickerContainer.classList.add('catalog__sticker-container', 'column--12', 'column-small--12');
-
+	const stickerContainer = document.createElement('div');
+	stickerContainer.classList.add('catalog__sticker-container', 'column--12', 'column-small--12');
 
 	newSticker.forEach((sticker) => {
 		 const mainSticker = document.createElement('div');
@@ -71,8 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	document.body.appendChild(stickerContainer);
-
-
 
 	const newProductPages = [
 		{
@@ -147,22 +144,22 @@ document.addEventListener('DOMContentLoaded', function () {
 				const productPage = document.createElement('div');
 				productPage.classList.add('product-page');
 				productPage.setAttribute('data-catalog-page', newProductPage.productAttribute);
-		
+		// exit-button
 				const exitButton = document.createElement('button');
 				exitButton.classList.add('exit-button__grid');
 				exitButton.textContent = 'X';
 				productPage.appendChild(exitButton);
-				
+		// logo-container
 				const logoContainer = document.createElement('div');
 				logoContainer.classList.add('product-page__header', 'show', 'offset--8', 'column--2', 'offset-small--5', 'column-small--2');
 				const logoImg = document.createElement('img');
 				logoImg.setAttribute('src', newProductPage.stickerImg);
 				logoContainer.appendChild(logoImg);
 				productPage.appendChild(logoContainer);
-				
+		// slideshow-container
 				const slideshowContainer = document.createElement('div');
 				slideshowContainer.classList.add('product-page__slideshow', 'offset-small--1', 'offset--1', 'column--6');
-				
+		// 
 				const pictures = document.createElement('div');
 				pictures.classList.add('slideshow__pictures');
 				slideshowContainer.appendChild(pictures);
@@ -249,7 +246,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		
 
-
 // Exit button
 		const exitButtonsGrid = document.querySelectorAll('.exit-button__grid');
 
@@ -260,16 +256,14 @@ document.addEventListener('DOMContentLoaded', function () {
 				productPage.remove();
 			});
 		}
-
+		
 		exitButtonsGrid.forEach(function (exitButtonGrid) {
 			exitButtonGrid.addEventListener('click', closeGrid);
 		});
 
 
 
-
-
-// Add event listener for the 'keydown' event on the document
+// Close product-page with escape button
 		document.addEventListener('keydown', function (event) {
 			if (event.key === 'Escape') {
 				closeGrid();
@@ -278,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-//Slideshow
+// Slideshow
 		let currentSlideIndex = 0;
 		const slides = document.querySelectorAll('.productPicture');
 		const prevButton = document.querySelector('.prev-button');
@@ -314,54 +308,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Creating the following productpage for each spesific stickers
 
-mainStickers.forEach(function(mainSticker) {
-mainSticker.addEventListener('click', filterStickers);
-});
+	mainStickers.forEach(function(mainSticker) {
+	mainSticker.addEventListener('click', filterStickers);
+	});
 	
 	
-
 
 // Search-bar 
-	
+
 	const catalogInput = document.querySelector('.catalog__input-bar input');
 	const catalogImg = document.querySelector('.catalog__input-bar img');
 	
 	catalogInput.addEventListener('focus', function () {
 			catalogImg.style.display = 'none';
 	});
-	
 	catalogInput.addEventListener('blur', function () {
 			catalogImg.style.display = 'block';
 	});
 	
 
 
+// Open navigation dropdowns
 
+	const catalogNavButtons = document.querySelectorAll('.catalog__nav-button')
 
-// Open and close navigation dropdowns
-
-const catalogNavButtons = document.querySelectorAll('.catalog__nav-button')
-
-function openDropdown(event) {
-	currentNavButton = event.currentTarget
-	currentChild = currentNavButton.firstElementChild;
-	currentChild.classList.add('show')
+	function openDropdown(event) {
+		currentNavButton = event.currentTarget
+		currentChild = currentNavButton.firstElementChild;
+		currentChild.classList.add('show')
 	}
+	catalogNavButtons.forEach(function(catalogNavButton) {
+		catalogNavButton.addEventListener('click', openDropdown);
+	});
 
-catalogNavButtons.forEach(function(catalogNavButton) {
-	catalogNavButton.addEventListener('click', openDropdown);
-  });
+// close navigation dropdowns
 
-  const exitButtonsFlex = document.querySelectorAll('.exit-button-flex');
+const exitButtonsFlex = document.querySelectorAll('.exit-button-flex');
 
-  function closeDiv(event) {
-		const exitButtonFlexer = event.target;
-		const parentDiv = exitButtonFlexer.parentElement;
-		console.log(parentDiv);
-  }
-  
-  exitButtonsFlex.forEach(function(exitButtonFlex) {
-		exitButtonFlex.addEventListener('click', closeDiv);
-  });
+function closeDropdown(event) {
+	currentExitButton = event.currentTarget;
+	currentParent = currentExitButton.ParentElement;
+	currentParent.classList.remove('show')
+}
+
+exitButtonsFlex.forEach(function(exitButtonFlex) {
+	exitButtonFlex.addEventListener('click', closeDropdown)
+})
+
+
+
 
 })

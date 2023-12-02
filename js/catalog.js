@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	const stickerContainer = document.createElement('div');
 	stickerContainer.classList.add('catalog__sticker-container', 'column--12', 'column-small--12');
 
+
+
 // Creating the stickers
 	newSticker.forEach((sticker) => {
 		 const mainSticker = document.createElement('div');
@@ -72,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		 stickerContainer.appendChild(mainSticker);
 	});
 	document.body.appendChild(stickerContainer);
+
+
 
 // All the product-page information
 	const newProductPages = [
@@ -137,7 +141,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		},
 	];
 
-// Creating the productpage and functions/logic within.
+
+
+// Creating the productpage and it's functions/logic within.
 	const mainStickers = document.querySelectorAll('.main-sticker');
 	function filterStickers(event) {
 			const pageToShow = event.currentTarget.dataset.stickerFilter;
@@ -341,14 +347,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			prevButton.addEventListener('click', prevSlide);
 			nextButton.addEventListener('click', nextSlide);
-		};
+	};
+
+
 
 // Event listener for creating the spesific productpage for each spesific sticker.
 	mainStickers.forEach(function(mainSticker) {
 	mainSticker.addEventListener('click', filterStickers);
 	});
 	
-	
+
 
 // Search-bar hide and show icon
 
@@ -365,7 +373,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	// Open navigation dropdowns
-
 	const catalogNavButtons = document.querySelectorAll('.catalog__nav-button')
 
 	function openDropdown(event) {
@@ -379,7 +386,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	// close navigation dropdowns
-
 	const exitButtonsFlex = document.querySelectorAll('.exit-button-flex');
 
 	function closeDropdown(event) {

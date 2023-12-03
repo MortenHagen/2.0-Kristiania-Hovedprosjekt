@@ -23,25 +23,25 @@
 		<div class="create-account__corporate-button column--4 column-small--6">
 			Bedrift
 		</div>
-		
+
 		<form grid class="create-account__private-form column--12 column-small--12">
 		
 			<label for="navn" class="create-account__label column--6 offset--3 column-small--6 offset-small--3">Navn:</label>
-			<input type="text" id="navn" name="navn" class="create-account__input column--6 offset--3 column-small--6 offset-small--3" required>
+			<input type="text" id="navn" name="namePrivate" class="create-account__input column--6 offset--3 column-small--6 offset-small--3" required>
 
 			<label for="epost" class="create-account__label column--6 offset--3 column-small--6 offset-small--3">Epost:</label>
-			<input type="email" id="epost" name="epost" class="create-account__input column--6 offset--3 column-small--6 offset-small--3" required>
+			<input type="email" id="epost" name="epostPrivate" class="create-account__input column--6 offset--3 column-small--6 offset-small--3" required>
 
 			<label for="telefonnummer" class="create-account__label column--6 offset--3 column-small--6 offset-small--3">Telefonnummer:</label>
-			<input type="tel" id="telefonnummer" name="telefonnummer" class="create-account__input column--6 offset--3 column-small--6 offset-small--3" required>
+			<input type="tel" id="phoneNumberPrivate" name="telefonnummer" class="create-account__input column--6 offset--3 column-small--6 offset-small--3" required>
 
 			<label for="fodselsdato" class="create-account__label column--6 offset--3 column-small--6 offset-small--3">Fødselsdato:</label>
-			<input type="date" id="fodselsdato" name="fodselsdato" class="create-account__input column--6 offset--3 column-small--6 offset-small--3" required>
+			<input type="date" id="birthdatePrivate" name="fodselsdato" class="create-account__input column--6 offset--3 column-small--6 offset-small--3" required>
 
 			<!-- Gender Dropdown -->
 			<div class="column--2 offset--5 column-small--4 offset-small--4">
 				<label for="gender" class="create-account__label">Gender:</label>
-				<select id="gender" name="gender" class="create-account__dropbtn">
+				<select id="genderPrivate" name="gender" class="create-account__dropbtn">
 					<option value="male">Male</option>
 					<option value="female">Female</option>
 				</select>
@@ -79,7 +79,7 @@
 
 
 
-	<script src="js/account.js"></script>
+	<script src="js/account__create.js"></script>
 
 </body>
 </html>

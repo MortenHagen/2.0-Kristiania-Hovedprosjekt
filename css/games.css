@@ -25,6 +25,11 @@
 	display: none;
 }
 
+.highscores-container{
+	display: flex;
+	width: 40%;
+}
+
 .show {
 	display: flex;
 }

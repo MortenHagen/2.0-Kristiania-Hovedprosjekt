@@ -79,7 +79,7 @@ function filterStickers (event) {
 			infoContainer.classList.add('product-page__info-container', 'offset-small--1', 'offset--7', 'column--4');
 			
 			const infoNav = document.createElement('div');
-			infoNav.classList.add('product-page__info-nav', 'column--12');
+			infoNav.classList.add('product-page__nav', 'column--12');
 			
 			const detailButton = document.createElement('div');
 			detailButton.setAttribute('data-product-spec', 'details');

@@ -1,3 +1,5 @@
+
+
 .catalog {
 	display: flex;
 	position: relative;
@@ -64,6 +66,14 @@
 	top: 1px;
 }
 
+.catalog__input-button {
+	position: absolute;
+	right: -3rem;
+	top: 0;
+	background-color: whitesmoke;
+	border-radius: 6px;
+}
+
 .catalog__sticker-container {
 	overflow: scroll;
 	display: grid;
@@ -118,8 +128,9 @@
 .main-sticker__text-container {
 	display: flex;
 	width: 50%;
-	border-radius: 10px;
 	flex-direction: column;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
 	background-color: white;
 	text-align: center;
 	transition: 100ms;
@@ -174,6 +185,14 @@
 	height: 6rem;
 }
 
+.productPictures {
+	max-height: 100%;
+	max-width: 100%;
+	display: none;
+	margin: 0 auto;
+	align-self: center;
+	background: white;
+}
 
 .product-page__slideshow {
 	display: flex;
@@ -190,36 +209,27 @@
 	height: 95%;
 }
 
-.productPicture {
-	max-height: 100%;
-	max-width: 100%;
-	display: none;
-	margin: 0 auto;
-	align-self: center;
-	background: white;
-}
-
 .prev-button, .next-button {
-	color: transparent;
+	display: flex;
 	position: absolute;
 	height: 100%;
 	width: 50%;
-	bottom: 0;
-}
-
-.prev-button:hover, .next-button:hover {
-	color: white;
-	text-shadow: 1px 1px 1px black;
+	cursor: pointer;
+	align-items: center;
 }
 
 .prev-button {
 	left: 0;
-	text-align: start;
+	justify-content: flex-start;
 }
 
 .next-button {
 	right: 0;
-	text-align: end;
+	justify-content: flex-end;
+}
+
+.prev-button:hover, .next-button:hover {
+	display: flex;
 }
 
 .product-page__info-container {
@@ -232,14 +242,14 @@
 	padding-top: 6px;
 }
 
-.product-page__info-nav {
+.product-page__nav {
 	height: 2rem;
 	display: flex;
 	flex-direction: row;
 
 }
 
-.product-page__button {
+.product-page__nav-button {
 	height: 1.5rem;
 	width: 30%;
 	margin-left: 1.5%;
@@ -250,13 +260,9 @@
 	text-align: center;
 }
 
-#product-details-container {
-	display: flex;
-}
 .product-page__info {
 	display: none;
 }
-
 .show {
 	display: flex;
 }

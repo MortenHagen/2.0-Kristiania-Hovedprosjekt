@@ -4,33 +4,33 @@ document.addEventListener('DOMContentLoaded', function () {
 // All the individual Sticker information
 	const newSticker = [
 		{
+			stickerHeader: 'Rød jakke',
 			stickerImg: 'assets/catalog-img/red-jacket-back.webp',
-			stickerHeader: 'Innføring',
 			stickerText: 'Her er litt tekst om produktet som selger. slogan. kort info.',
 			stickerAttribute: 'red-jacket',
 		},
 		{
+			stickerHeader: 'Blå jakke',
 			stickerImg: 'assets/catalog-img/blue-jacket.webp',
-			stickerHeader: 'Overskrift',
-			stickerText: 'Her ds. slogan. kort info.',
+			stickerText: '"Guttefarge"',
 			stickerAttribute: 'blue-jacket',
 		},
 		{
+			stickerHeader: 'Gul jakke',
 			stickerImg: 'https://www.xxl.no/filespin/a171c26f735646babecb15377ba91e64?resize=750,750&quality=75&bgcolor=efefef',
-			stickerHeader: 'Overskrift',
 			stickerText: 'Her ds. slogan. kort info.',
 			stickerAttribute: 'yellow-jacket',
 		},
 		{
+			stickerHeader: 'Orange jakke',
 			stickerImg: 'assets/catalog-img/blue-jacket.webp',
-			stickerHeader: 'Overskrift',
-			stickerText: 'Her ds. slogan. kort info.',
+			stickerText: 'Oransje er spicy da',
 			stickerAttribute: 'orange-jacket',
 		},
 		{
+			stickerHeader: 'Rosa jakke',
 			stickerImg: 'assets/catalog-img/blue-jacket.webp',
-			stickerHeader: 'Overskrift',
-			stickerText: 'Her ds. slogan. kort info.',
+			stickerText: 'Jentete ass',
 			stickerAttribute: 'pink-jacket',
 		},
 	];
@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // All the product-page information
 	const newProductPages = [
 		{
+			 productHeader: 'Rød Jakke',
 			 stickerImg: 'assets/catalog-img/red-jacket-back.webp',
-			 productHeader: 'Innføring',
 			 productTextContent: 'Her kan du skrsadgawrgW1111',
 			 productAttribute: 'red-jacket',
 			 detailsContent: 'Her k21462uy4435',
@@ -92,8 +92,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			 productPicture3:'assets/catalog-img/red-jacket-static.webp',
 		},
 		{
+			 productHeader: 'Blå jakke',
 			 stickerImg: 'assets/catalog-img/blue-jacket.webp',
-			 productHeader: 'Overskrift',
 			 productTextContent: 'Her kan du skrive masse tekst. owbeg2222',
 			 productAttribute: 'blue-jacket',
 			 detailsContent: 'Her kan du skrive masse tekst. owbeg2222',
@@ -104,8 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			 productPicture3:'assets/catalog-img/blue-jacket-smile.webp',
 		},
 		{
-			stickerImg: 'https://www.xxl.no/filespin/a171c26f735646babecb15377ba91e64?resize=750,750&quality=75&bgcolor=efefef',
-			productHeader: 'Overskrift',
+			productHeader: 'Gul Jakke',
+			stickerImg: 'https://www.xxl.no/filespin/4cbae4df5a974d75875733e80c185b9a?resize=750,750&quality=75&bgcolor=efefef',
 			productTextContent: 'Her kan du skrive masse tekst. owbeg2222',
 			productAttribute: 'yellow-jacket',
 			detailsContent: 'Her kan du skrive masse tekst. owbeg2222',
@@ -116,20 +116,20 @@ document.addEventListener('DOMContentLoaded', function () {
 			productPicture3:'https://www.xxl.no/filespin/e16bdb0821eb4b11afdd73e9c4c06c75?resize=750,750&quality=75&bgcolor=efefef',
 		},
 		{
+			productHeader: 'oransje jakke',
 			stickerImg: 'assets/catalog-img/blue-jacket.webp',
-			productHeader: 'Overskrift',
 			productTextContent: 'Her kan du skrive masse tekst. owbeg2222',
 			productAttribute: 'orange-jacket',
 			detailsContent: 'Her kan du skrive masse tekst. owbeg2222',
 			buyContent: 'Produktet koster 2000kr',
 			historyContent: 'pleide å koste 1500',
-			productPicture1:'assets/catalog-img/blue-jacket.webp',
-			productPicture2:'assets/catalog-img/blue-jacket-back.webp',
+			productPicture1:'assets/catalog-img/orange-jacket-front.jpg',
+			productPicture2:'assets/catalog-img/orange-jacket-back.jpeg',
 			productPicture3:'assets/catalog-img/blue-jacket-smile.webp',
 		},
 		{
+			productHeader: 'Rosa jakke',
 			stickerImg: 'assets/catalog-img/blue-jacket.webp',
-			productHeader: 'Overskrift',
 			productTextContent: 'Her kan du skrive masse tekst. owbeg2222',
 			productAttribute: 'pink-jacket',
 			detailsContent: 'Her kan du skrive masse tekst. owbeg2222',
@@ -147,9 +147,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	const mainStickers = document.querySelectorAll('.main-sticker');
 	function filterStickers(event) {
 			const pageToShow = event.currentTarget.dataset.stickerFilter;
-	
+		
 			newProductPages.forEach(newProductPage => {
 				if (pageToShow === newProductPage.productAttribute) {
+
+			// Product-page container
 					const productPage = document.createElement('div');
 					productPage.classList.add('product-page');
 					productPage.setAttribute('data-catalog-page', newProductPage.productAttribute);
@@ -179,33 +181,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// Image 1
 					const img1 = document.createElement('img');
-					img1.classList.add('productPicture');
+					img1.classList.add('productPictures');
 					img1.setAttribute('src', newProductPage.productPicture1);
 					pictures.appendChild(img1);
 
 			// Image 2
 					const img2 = document.createElement('img');
-					img2.classList.add('productPicture');
+					img2.classList.add('productPictures');
 					img2.setAttribute('src', newProductPage.productPicture2);
 					pictures.appendChild(img2);
 
 			// Image 3
 					const img3 = document.createElement('img');
-					img3.classList.add('productPicture');
+					img3.classList.add('productPictures');
 					img3.setAttribute('src', newProductPage.productPicture3);
 					pictures.appendChild(img3);
 
 			// "Previous" button in slideshow
 					const prevButton = document.createElement('div');
 					prevButton.classList.add('prev-button');
-					prevButton.textContent = 'Previous';
 					slideshowContainer.appendChild(prevButton);
+				// Text for Previous button
+					const prevButtonImg = document.createElement('img');
+					prevButtonImg.setAttribute('src', 'assets/pictures/arrow-left.svg');
+					prevButton.appendChild(prevButtonImg)
 
 			// "Next" button in slideshow
 					const nextButton = document.createElement('div');
 					nextButton.classList.add('next-button');
-					nextButton.textContent = 'Next';
 					slideshowContainer.appendChild(nextButton);
+				// Text for Next button
+					const nextButtonImg = document.createElement('img');
+					nextButtonImg.setAttribute('src', 'assets/pictures/arrow-right.svg')
+					nextButton.appendChild(nextButtonImg)
 
 			// Adding the slideshow page	
 					productPage.appendChild(slideshowContainer);
@@ -217,27 +225,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			// Navigation container within the product information container.
 					const infoNav = document.createElement('div');
-					infoNav.classList.add('product-page__info-nav', 'column--12');
+					infoNav.classList.add('product-page__nav', 'column--12');
 					infoContainer.appendChild(infoNav);
 
 			// Details-button
 					const detailButton = document.createElement('div');
 					detailButton.setAttribute('data-product-spec', 'details');
-					detailButton.classList.add('column--4', 'column-small--4', 'product-page__button');
+					detailButton.classList.add('column--4', 'column-small--4', 'product-page__nav-button');
 					detailButton.textContent = 'Detaljer';
 					infoNav.appendChild(detailButton);
 
 			// Buy button
 					const buyButton = document.createElement('div');
 					buyButton.setAttribute('data-product-spec', 'buy');
-					buyButton.classList.add('column--4', 'column-small--4', 'product-page__button');
+					buyButton.classList.add('column--4', 'column-small--4', 'product-page__nav-button');
 					buyButton.textContent = 'Kjøp';
 					infoNav.appendChild(buyButton);
 
 			// History-button	
 					const historyButton = document.createElement('div');
 					historyButton.setAttribute('data-product-spec', 'history');
-					historyButton.classList.add('column--4', 'column-small--4', 'product-page__button');
+					historyButton.classList.add('column--4', 'column-small--4', 'product-page__nav-button');
 					historyButton.textContent = 'Historikk';
 					infoNav.appendChild(historyButton);
 			// Details-info
@@ -269,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			
 	// Details - Buy - History buttons logic, adding/removing "show" class to show/hide info.
-			const productPageButtons = document.querySelectorAll('.product-page__button');
+			const productPageButtons = document.querySelectorAll('.product-page__nav-button');
 			const productOptions = document.querySelectorAll('.product-page__info');
 
 			function showInfo(event) {
@@ -319,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Slideshow
 			let currentSlideIndex = 0;
-			const slides = document.querySelectorAll('.productPicture');
+			const slides = document.querySelectorAll('.productPictures');
 			const prevButton = document.querySelector('.prev-button');
 			const nextButton = document.querySelector('.next-button');
 
@@ -327,6 +335,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				slides.forEach((slide, i) => {
 					if (i === index) {
 						slide.style.display = 'block';
+						let currentIndex = index +1;
 					} else {
 						slide.style.display = 'none';
 					}
@@ -347,6 +356,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			prevButton.addEventListener('click', prevSlide);
 			nextButton.addEventListener('click', nextSlide);
+
+
 	};
 
 
@@ -358,18 +369,31 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 
 
-// Search-bar hide and show icon
+// Search-bar hide and show icon+ log whats written by enter og click on search button
 
 	const catalogInput = document.querySelector('.catalog__input-bar input');
 	const catalogImg = document.querySelector('.catalog__input-bar img');
-	
-	catalogInput.addEventListener('focus', function () {
+	const inputSearchButton = document.querySelector('.catalog__input-button');
+
+	// Hide search icon
+	catalogInput.addEventListener('focus', function() {
 			catalogImg.style.display = 'none';
 	});
-	catalogInput.addEventListener('blur', function () {
+	// Show Search icon
+	catalogInput.addEventListener('blur', function() {
 			catalogImg.style.display = 'block';
 	});
-	
+	// Log text by keydown Enter
+	catalogInput.addEventListener('keydown', function(event) {
+		if (event.key === 'Enter') {
+			console.log(catalogInput.value);
+		}
+	})
+	// Log text by clicking search-button
+	inputSearchButton.addEventListener('click', function() {
+		console.log(catalogInput.value)		
+	})
+
 
 
 	// Open navigation dropdowns

@@ -11,20 +11,55 @@
 	<link rel="stylesheet" href="css/account.css">
 </head>
 
-<div grid4 class="create-account">
-	<div class="create-account__header column--10 offset--1 offset-small--1">Opprett konto!</div>
-
-	<div class="create-account__private column--4 offset--2 column-small--6">
-		Privat
-	</div>
-
-	<div class="create-account__corporate column--4 column-small--6">
-		Bedrift
-	</div>
-</div>
 
 <body>
 
+	<div grid class="create-account-container">
+		<div class="create-account__header column--10 offset--1 offset-small--1">Opprett konto!</div>
+	
+		<div class="create-account__private-button column--4 offset--2 column-small--6">
+			Privat
+		</div>
+	
+		<div class="create-account__corporate-button column--4 column-small--6">
+			Bedrift
+		</div>
+		<form grid class="create-account__private-form column--12 column-small--12">
+		
+			<label for="navn" class="create-account__label column--4 offset--4 column-small--6 offset-small--3">Navn:</label>
+			<input type="text" id="navn" name="navn" class="create-account__input column--4 offset--4 column-small--6 offset-small--3" required>
+
+			<label for="epost" class="create-account__label column--4 offset--4 column-small--6 offset-small--3">Epost:</label>
+			<input type="email" id="epost" name="epost" class="create-account__input column--4 offset--4 column-small--6 offset-small--3" required>
+
+			<label for="telefonnummer" class="create-account__label column--4 offset--4 column-small--6 offset-small--3">Telefonnummer:</label>
+			<input type="tel" id="telefonnummer" name="telefonnummer" class="create-account__input column--4 offset--4 column-small--6 offset-small--3" required>
+
+			<label for="fodselsdato" class="create-account__label column--4 offset--4 column-small--6 offset-small--3">Fødselsdato:</label>
+			<input type="date" id="fodselsdato" name="fodselsdato" class="create-account__input column--4 offset--4 column-small--6 offset-small--3" required>
+
+			<!-- Gender Dropdown -->
+			<div class="column--2 offset--5 column-small--4 offset-small--4">
+				<label for="gender" class="create-account__label">Gender:</label>
+				<select id="gender" name="gender" class="create-account__dropbtn">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
+			</div>
+		</form>
+
+		<div class="create-account__terms-container column--12 column-small--12">
+			<h3>Terms
+				<input type="checkbox" class="create-account__checkbox">
+			</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget felis urna.Phasellus in risus at mi sollicitudin posuere.</p>
+		</div>
+
+		<button class="create-account__button column--4 offset--4 column-small--6 offset-small--3">
+			Opprett!
+		</button>
+
+	</div>
 
 	<!--logo-->
 	<button class="header2">

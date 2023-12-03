@@ -2,10 +2,21 @@
 document.addEventListener('DOMContentLoaded', function () {
 
 	const allGames = document.querySelector('.allgames-container')
+	
+	
+		
+
+	const runningGameButton = document.querySelector('.running-game-button')
 
 // Endless running-game
-	const runningGameButton = document.querySelector('.running-game-button')
 	runningGameButton.addEventListener('click', function() {
+
+		allGames.classList.add('show')
+
+		const exitButtonCreate = document.createElement('div');
+		exitButtonCreate.classList.add('exit-button');
+		exitButtonCreate.textContent = 'X'
+		allGames.appendChild(exitButtonCreate);
 
 		const gameContainerCreator = document.createElement('div');
 		gameContainerCreator.classList.add('endless-container');
@@ -66,53 +77,64 @@ document.addEventListener('DOMContentLoaded', function () {
 		const gameScriptCreator = document.createElement('script');
 		gameScriptCreator.setAttribute('src', 'js/games/endless-runner.js');
 		gameContainerCreator.appendChild(gameScriptCreator);
+		const allGamesExit = document.querySelector('.exit-button')
 
-		const exitGameButton = document.createElement('div')
-		exitGameButton.classList.add('exit-game')
-		exitGameButton.textContent = "X"
-		gameContainerCreator.appendChild(exitGameButton)
+		function closeGame() {
+			allGames.innerHTML = '';
+			allGames.classList.remove('show')
+		};
 
-		const exitEndless = document.querySelector('.exit-game');
+		allGamesExit.addEventListener('click', closeGame)
 
-		function closeEndless() {
-			gameContainerCreator.remove();
-	
-		}
-		exitEndless.addEventListener('click', closeEndless);
-		});
+	});
+
+
+	const snakeGameButton = document.querySelector('.snake-game-button')
 
 // Snake game
-	const snakeGameButton = document.querySelector('.snake-game-button')
-		snakeGameButton.addEventListener('click', function () {
-			    // Game-container"
-				 const snakeContainer = document.createElement('div');
-				 snakeContainer.classList.add('game-container');
-				 allGames.appendChild(snakeContainer)
-			
-				 // Create a div element with the class "game-board" and id "game-board"
-				 const gameBoardCreate = document.createElement('div');
-				 gameBoardCreate.classList.add('game-board');
-				 gameBoardCreate.id = 'game-board';
-				 snakeContainer.appendChild(gameBoardCreate);
-			
-				 // Create a div element with the class "score" and id "score"
-				 const scoreDiv = document.createElement('div');
-				 scoreDiv.classList.add('score');
-				 scoreDiv.id = 'score';
-				 scoreDiv.textContent = 'Score: 0';
-				 snakeContainer.appendChild(scoreDiv);
-			
-				 // Create a button element with the id "start-button"
-				 const startButtonCreate = document.createElement('button');
-				 startButtonCreate.classList = 'start-button';
-				 startButtonCreate.textContent = 'Gønna som faen!';
-				 snakeContainer.appendChild(startButtonCreate);
-			
-				 // Include your snake.js file
-				 const scriptElement = document.createElement('script');
-				 scriptElement.src = 'js/games/snake.js';
-				 document.body.appendChild(scriptElement);
-				 
-				
-		})
+	snakeGameButton.addEventListener('click', function () {
+		allGames.classList.add('show')
+
+		const exitButtonCreate = document.createElement('div');
+		exitButtonCreate.classList.add('exit-button');
+		exitButtonCreate.textContent = 'X'
+		allGames.appendChild(exitButtonCreate);
+		
+		const snakeContainer = document.createElement('div');
+		snakeContainer.classList.add('snake-container');
+		allGames.appendChild(snakeContainer)
+
+		// Create a div element with the class "game-board" and id "game-board"
+		const gameBoardCreate = document.createElement('div');
+		gameBoardCreate.classList.add('game-board');
+		gameBoardCreate.id = 'game-board';
+		snakeContainer.appendChild(gameBoardCreate);
+
+		// Create a div element with the class "score" and id "score"
+		const scoreDiv = document.createElement('div');
+		scoreDiv.classList.add('score');
+		scoreDiv.id = 'score';
+		scoreDiv.textContent = 'Score: 0';
+		snakeContainer.appendChild(scoreDiv);
+
+		// Create a button element with the id "start-button"
+		const startButtonCreate = document.createElement('button');
+		startButtonCreate.classList = 'start-button';
+		startButtonCreate.textContent = 'Gønna som faen!';
+		snakeContainer.appendChild(startButtonCreate);
+
+		// Include your snake.js file
+		const scriptElement = document.createElement('script');
+		scriptElement.src = 'js/games/snake.js';
+		snakeContainer.appendChild(scriptElement);
+		const allGamesExit = document.querySelector('.exit-button')
+
+		function closeGame() {
+			allGames.innerHTML = '';
+			allGames.classList.remove('show')
+		};
+		
+		allGamesExit.addEventListener('click', closeGame)
+
+	});
 });

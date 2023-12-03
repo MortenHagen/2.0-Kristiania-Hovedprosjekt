@@ -3,15 +3,9 @@
 	--circle-animation-duration: 2.9s;
 }
 
-body {
-	margin: 0;
-	overflow: hidden;
-}
-
-
 .endless-container {
-	width: 100%;
-	height: 100% vw;
+	width: 95%;
+	height: 50%;
 	background-color: white;
 	position: relative;
 }
@@ -36,7 +30,7 @@ body {
 	position: absolute;
 	bottom: 100px;
 	right: 0;
-	animation: obstacle-animation var(--obstacle-animation-duration) linear infinite;
+	animation: obstacle-animation 2500ms linear infinite;
 	animation-delay: 1.5s;
 }
 
@@ -44,7 +38,7 @@ body {
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	animation: obstacle-animation var(--obstacle-animation-duration) linear infinite;
+	animation: obstacle-animation 2500ms linear infinite;
 }
 
 .obstacleOne img,
@@ -58,7 +52,7 @@ body {
 	bottom: 0;
 	right: 0;
 	width: 3rem;
-	animation: obstacle-animation var(--circle-animation-duration) linear infinite;
+	animation: obstacle-animation 2200ms linear infinite;
 }
 
 .cherryImg {

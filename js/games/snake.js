@@ -159,12 +159,12 @@ startButton.addEventListener("click", () => {
 		// Take only the top 5 scores
 		const top5Scores = highScores.slice(0, 5);
 
-		const highScoresListElement = document.getElementById('highScoresList');
+		const highscoresListElement = document.querySelector('.highscoresList');
 
 		top5Scores.forEach((score, index) => {
 			const listItem = document.createElement('li');
 			listItem.textContent = `#${index + 1}: ${score}`;
-			highScoresListElement.appendChild(listItem);
+			highscoresListElement.appendChild(listItem);
 		});
 	}
 

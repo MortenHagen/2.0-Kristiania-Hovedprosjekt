@@ -95,6 +95,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	snakeGameButton.addEventListener('click', function () {
 		allGames.classList.add('show')
 
+		const highScoreContainer = document.createElement('div');
+		highScoreContainer.classList.add('highscores-container');
+		allGames.appendChild(highScoreContainer);
+
+		const highScoreList = document.createElement('ul');
+		highScoreList.classList.add('highscoresList');
+		highScoreContainer.appendChild(highScoreList);
+
 		const exitButtonCreate = document.createElement('div');
 		exitButtonCreate.classList.add('exit-button');
 		exitButtonCreate.textContent = 'X'
